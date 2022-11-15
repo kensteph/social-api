@@ -6,10 +6,16 @@ import postRoutes from "./routes/posts.js"
 import commentRoutes from "./routes/comments.js"
 import likeRoutes from "./routes/likes.js"
 
+//Security
+import cors from "cors"
+import cookieParser from "cookie-parser"
+
 
 
 //MIDLEWARES
 app.use(express.json())//Allows us to receive json
+app.use(cors()) //Allows specific urls to reach our API
+app.use(cookieParser()) //Allows us to use cookie
 
 app.use('/api/users',userRoutes);
 app.use('/api/auth',authRoutes);
